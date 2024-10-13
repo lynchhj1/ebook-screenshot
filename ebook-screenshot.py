@@ -23,7 +23,7 @@ def take_screenshot(filename, region=None):
 # Function to simulate right arrow key presses a set number of times and take a screenshot after each press
 def press_right_arrow_and_capture(presses, region=None):
     for i in range(presses):
-        time.sleep(1)  # wait 1 second between key presses (adjust if needed)
+        time.sleep(3)  # wait 1 second between key presses (adjust if needed)
         pyautogui.press('right')  # Simulate pressing the right arrow key
         screenshot_path = f"{screenshot_dir}/screenshot_{i+1}.png"
         take_screenshot(screenshot_path, region)
@@ -145,7 +145,7 @@ root = Tk()
 root.title("Screenshot and Right Arrow Key Automation")
 
 # GUI labels and entry fields
-presses_label = Label(root, text="Number of Pages:")
+presses_label = Label(root, text="Number of Page Turns (pages -1):")
 presses_label.grid(row=0, column=0, padx=10, pady=10)
 presses_entry = Entry(root)
 presses_entry.grid(row=0, column=1, padx=10, pady=10)

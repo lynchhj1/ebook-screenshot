@@ -55,7 +55,7 @@ pip install pyautogui pillow reportlab pygetwindow
 
 - Suppose you want to take 10 screenshots from the Kindle app, capturing a specific portion of the screen. 
     1. Select the screenshot region (e.g., the content of the book you're reading).
-    2. Set the number of pages (e.g., `10`).
+    2. Set the number of page turns (e.g., `10`).
     3. Click **Start**. The script will return focus to the Kindle app, press the right arrow 10 times, and capture screenshots after each press.
     4. A PDF will be generated with all the screenshots in high resolution.
 
