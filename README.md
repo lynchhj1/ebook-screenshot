@@ -20,13 +20,14 @@ Before running this script, make sure you have Python installed on your machine.
 This project depends on several Python libraries. To install them, run the following command in your terminal:
 
 ```bash
-pip install pyautogui pillow reportlab pygetwindow
+pip install pyautogui pillow reportlab pygetwindow img2pdf
 ```
 
 - `pyautogui`: Used for automating keyboard presses and taking screenshots.
 - `Pillow`: A Python Imaging Library used for image manipulation.
 - `reportlab`: A PDF generation library used for creating the PDF from screenshots.
 - `pygetwindow`: A library to interact with application windows, used to focus on Kindle.
+- `img2pdf`: A library that enables seamless conversion of various image formats (JPEG, PNG, etc.) into high-quality PDF files
 
 ## Usage
 
