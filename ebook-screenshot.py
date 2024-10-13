@@ -1,6 +1,7 @@
 import pyautogui
 import time
 import os
+import img2pdf
 from PIL import Image
 from reportlab.pdfgen import canvas
 from tkinter import Tk, Label, Entry, Button, Toplevel, Canvas, messagebox
@@ -25,28 +26,28 @@ def press_right_arrow_and_capture(presses, region=None):
     for i in range(presses):
         time.sleep(3)  # wait 1 second between key presses (adjust if needed)
         pyautogui.press('right')  # Simulate pressing the right arrow key
-        screenshot_path = f"{screenshot_dir}/screenshot_{i+1}.png"
+        screenshot_path = f"{screenshot_dir}/screenshot_{i+1:04}.png"
         take_screenshot(screenshot_path, region)
-        print(f"Screenshot {i+1} saved to {screenshot_path}")
+        print(f"Screenshot {i+1:04} saved to {screenshot_path}")
 
 # Function to convert images to a single PDF without downgrading quality
 def convert_images_to_pdf(image_folder, output_pdf, presses):
-    image_list = []
+    image_paths = []
     
     for i in range(1, presses + 1):
-        image_path = f"{image_folder}/screenshot_{i}.png"
+        image_path = f"{image_folder}/screenshot_{i:04}.png"
         if os.path.exists(image_path):
-            image = Image.open(image_path)
-            image_list.append(image)  # Keep the original quality without conversion to RGB
+            image_paths.append(image_path)
 
-    if image_list:
-        # Save the images as a PDF without compressing or converting
-        first_image = image_list[0]
-        first_image.save(output_pdf, "PDF", resolution=100.0, save_all=True, append_images=image_list[1:])
+    if image_paths:
+        # Save the images as a PDF using img2pdf, ensuring we use valid file paths
+        with open(output_pdf, "wb") as f:
+            f.write(img2pdf.convert(image_paths))
         print(f"PDF saved to {output_pdf}")
         messagebox.showinfo("Success", f"PDF saved to {output_pdf}")
     else:
         messagebox.showerror("Error", "No screenshots found to convert to PDF")
+
 
 # Function to select output PDF file
 def select_output_file():
@@ -145,7 +146,7 @@ root = Tk()
 root.title("Screenshot and Right Arrow Key Automation")
 
 # GUI labels and entry fields
-presses_label = Label(root, text="Number of Page Turns (pages -1):")
+presses_label = Label(root, text="Number of Pages:")
 presses_label.grid(row=0, column=0, padx=10, pady=10)
 presses_entry = Entry(root)
 presses_entry.grid(row=0, column=1, padx=10, pady=10)
