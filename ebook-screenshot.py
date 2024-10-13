@@ -146,7 +146,7 @@ root = Tk()
 root.title("Screenshot and Right Arrow Key Automation")
 
 # GUI labels and entry fields
-presses_label = Label(root, text="Number of Pages:")
+presses_label = Label(root, text="Number of Page Turns (pages - 1):")
 presses_label.grid(row=0, column=0, padx=10, pady=10)
 presses_entry = Entry(root)
 presses_entry.grid(row=0, column=1, padx=10, pady=10)
