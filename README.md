@@ -13,7 +13,7 @@ This Python project allows you to automate the task of taking screenshots of a s
 
 ### Prerequisites
 
-Before running this script, make sure you have Python installed on your machine. You can download Python from [here](https://www.python.org/downloads/).
+Before running this script, make sure you have Python installed on your machine. You can download Python from [here](https://www.python.org/downloads/).  This currently only works on Windows.
 
 ### Required Python Packages
 
